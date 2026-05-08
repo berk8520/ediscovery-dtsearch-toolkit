@@ -1,0 +1,64 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "dtSearch",
+  "scopeName": "source.dtsearch",
+  "patterns": [
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#operators"
+    },
+    {
+      "include": "#wildcards"
+    },
+    {
+      "include": "#keywords"
+    }
+  ],
+  "repository": {
+    "operators": {
+      "patterns": [
+        {
+          "match": "\\b(?i:AND|OR|NOT|AndAny)\\b",
+          "name": "keyword.control.logical.dtsearch"
+        },
+        {
+          "match": "(?i:\\b(W|PRE)/\\d+\\b)",
+          "name": "keyword.control.proximity.dtsearch"
+        },
+        {
+          "match": "(?i:\\bNOT\\s+(W|PRE)/\\d+\\b)",
+          "name": "keyword.control.proximity.negative.dtsearch"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.dtsearch",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "match": "\\\\.",
+          "name": "constant.character.escape.dtsearch"
+        }
+      ]
+    },
+    "wildcards": {
+      "patterns": [
+        {
+          "match": "[\\*\\?\\%\\=~#]",
+          "name": "variable.language.wildcard.dtsearch"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "match": "\\b(?i:xfirstword|xlastword)\\b",
+          "name": "support.function.builtin.dtsearch"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+    "Email Variations": {
+        "prefix": "email",
+        "body": [
+            "(email OR e-mail OR \"electronic mail\" OR correspondence)"
+        ],
+        "description": "Standard email and correspondence variations"
+    },
+    "Privilege Terms": {
+        "prefix": "priv",
+        "body": [
+            "(privilege* OR attorney* OR counsel* OR legal OR paralegal OR \"work product\")"
+        ],
+        "description": "Standard attorney-client privilege variations"
+    },
+    "Confidential Terms": {
+        "prefix": "conf",
+        "body": [
+            "(confidential* OR secret OR proprietary OR \"trade secret\")"
+        ],
+        "description": "Standard confidentiality variations"
+    },
+    "Proximity W/15": {
+        "prefix": "prox",
+        "body": [
+            "W/15"
+        ],
+        "description": "Standard proximity operator W/15"
+    },
+    "Preceding Proximity PRE/15": {
+        "prefix": "pre",
+        "body": [
+            "PRE/15"
+        ],
+        "description": "Standard preceding proximity operator PRE/15"
+    }
+}

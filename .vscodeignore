@@ -1,0 +1,13 @@
+.vscode/**
+.vscode-test/**
+out/test/**
+src/**
+.gitignore
+yarn.lock
+webpack.config.js
+vsc-extension-quickstart.md
+**/*.map
+TestSearches/**
+Docs/**
+test-*.js
+test-*.ts

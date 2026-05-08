@@ -1,0 +1,110 @@
+{
+  "name": "ediscovery-dtsearch-toolkit",
+  "displayName": "eDiscovery dtSearch Toolkit",
+  "description": "Real-time linting, syntax highlighting, and logic refactoring for dtSearch queries.",
+  "publisher": "dtsearch-tools",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dtsearch-tools/dtsearch-syntax-guard"
+  },
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "dtsearch",
+        "aliases": [
+          "dtSearch",
+          "dtsearch"
+        ],
+        "extensions": [
+          ".dt",
+          ".dt1",
+          ".dtsearch"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "dtsearch.cleanInPlace",
+        "title": "dtSearch: Clean (In-Place)"
+      },
+      {
+        "command": "dtsearch.cleanNew",
+        "title": "dtSearch: Clean (New Tab)"
+      },
+      {
+        "command": "dtsearch.cleanAppend",
+        "title": "dtSearch: Clean (Append)"
+      },
+      {
+        "command": "dtsearch.expandNew",
+        "title": "dtSearch: Expand Logic (New Tab)"
+      },
+      {
+        "command": "dtsearch.expandAppend",
+        "title": "dtSearch: Expand Logic (Append)"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorLangId == dtsearch",
+          "command": "dtsearch.cleanInPlace",
+          "group": "dtsearch_actions@1"
+        },
+        {
+          "when": "editorLangId == dtsearch",
+          "command": "dtsearch.cleanNew",
+          "group": "dtsearch_actions@2"
+        },
+        {
+          "when": "editorLangId == dtsearch",
+          "command": "dtsearch.cleanAppend",
+          "group": "dtsearch_actions@3"
+        },
+        {
+          "when": "editorLangId == dtsearch",
+          "command": "dtsearch.expandNew",
+          "group": "dtsearch_actions@4"
+        },
+        {
+          "when": "editorLangId == dtsearch",
+          "command": "dtsearch.expandAppend",
+          "group": "dtsearch_actions@5"
+        }
+      ]
+    },
+    "grammars": [
+      {
+        "language": "dtsearch",
+        "scopeName": "source.dtsearch",
+        "path": "./syntaxes/dtsearch.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "dtsearch",
+        "path": "./snippets/dtsearch.snippets.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.0.0"
+  }
+}
